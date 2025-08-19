@@ -1,0 +1,61 @@
+# pyproject.toml
+# Minimal, PEP 621-compatible build configuration for the Logitech automation
+# framework.  Source code lives in `src/`, tests in `tests/`.
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "logitech-assesment"
+version         = "0.1.0"
+description     = "BDD-driven automation framework for the Logitech buggy-calculator app and related APIs."
+readme          = "README.md"
+requires-python = ">=3.12"
+
+authors = [
+    { name = "Pawel Nowak", email = "pawel.8.nowak@gmail.com" }
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.4",
+    "pytest-bdd>=7.0",   # if you use pytest-bdd for unit tests
+    "behave>=1.2",       # for BDD feature execution
+]
+dev = [
+    "black>=24.3",
+    "ruff>=0.3",
+    "pre-commit>=3.6",
+    "tox>=4.14",
+]
+
+[project.urls]
+Homepage = "https://github.com/pawelsowanowak/logitech"
+Source   = "https://github.com/pawelsowanowak/logitech"
+
+# --------------------------------------------------------------------------- #
+# Tool configuration                                                          #
+# --------------------------------------------------------------------------- #
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where   = ["src"]
+exclude = ["tests*", "scripts*"]
+
+[tool.pytest.ini_options]
+addopts   = "-ra -q"
+testpaths = ["tests"]
+
+# Optional coverage configuration
+[tool.coverage.run]
+source = ["logitech"]
+branch = true
