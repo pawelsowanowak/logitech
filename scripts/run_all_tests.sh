@@ -23,21 +23,21 @@ check_device_connection() {
 }
 
 check_device_connection
-    pushd "$PROJECT_ROOT"
-    mkdir -p "$LOG_DIR"
-    mkdir -p "$LOG_DIR/device"
+pushd "$PROJECT_ROOT"
+mkdir -p "$LOG_DIR"
+mkdir -p "$LOG_DIR/device"
 
-    echo "========= Running API Tests ========="
-    pytest tests/api/test_user.py -v
+echo "========= Running API Tests ========="
+pytest tests/api/test_user.py -v
 
-    echo "========= Running Calculator E2E Tests ========="
-    pytest tests/buggy_calc/test_e2e.py -v
+echo "========= Running Calculator E2E Tests ========="
+pytest tests/buggy_calc/test_e2e.py -v
 
-    echo "========= Running BDD Tests ========="
-    behave --format=pretty --outfile=logs/behave/bdd_calculator.txt
+echo "========= Running BDD Tests ========="
+behave --format=pretty --outfile=logs/behave/bdd_calculator.txt
 
-    echo "========= Collecting complete logcat dump ========="
-    adb.exe logcat -d -v time > "$LOG_DIR/device/logcat_dump.txt" 2>&1
+echo "========= Collecting complete logcat dump ========="
+adb.exe logcat -d -v time > "$LOG_DIR/device/logcat_dump.txt" 2>&1
 
-    echo "========= Collecting package details information ========="
-    adb shell dumpsys package "$APP_PACKAGE" > "$LOG_DIR/device/package_details.txt" 2>&1
+echo "========= Collecting package details information ========="
+adb shell dumpsys package "$APP_PACKAGE" > "$LOG_DIR/device/package_details.txt" 2>&1
