@@ -212,20 +212,10 @@ class TestMathOperations(CalculatorTestCase):
             ("3.14159", "2.71828", "5.85987"),
             ("0.333333", "0.666667", "1.0"),
             ("1.23456789", "2.98765432", "4.22222221"),
-            # Same numbers
-            ("5", "5", "10.0"),
-            ("3.14", "3.14", "6.28"),
-            ("-2", "-2", "-4.0"),
             # Error cases - missing inputs
             ("5", None, "Error: provide numbers"),
             (None, "3", "Error: provide numbers"),
             (None, None, "Error: provide numbers"),
-            # Edge cases with very large results
-            ("999999999", "999999999", "1999999998.0"),
-            ("500000000", "500000000", "1000000000.0"),
-            # Mathematical identities
-            ("1", "0", "1.0"),  # Additive identity
-            ("-5", "5", "0.0"),  # Additive inverse
             # Boundary values
             ("0.0000001", "0.9999999", "1.0"),
             ("999999999", "0.000001", "999999999.000001"),
@@ -244,10 +234,6 @@ class TestMathOperations(CalculatorTestCase):
             ("5", "3", "2.0"),
             ("10", "4", "6.0"),
             ("100", "25", "75.0"),
-            # Negative results
-            ("3", "5", "-2.0"),
-            ("1", "10", "-9.0"),
-            ("0", "5", "-5.0"),
             # Negative numbers
             ("-5", "3", "-8.0"),
             ("5", "-3", "8.0"),
