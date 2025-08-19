@@ -9,12 +9,12 @@ GREEN='\033[0;32m'
 
 
 check_device_connection() {
-    if ! command -v adb.exe &> /dev/null; then
+    if ! command -v adb &> /dev/null; then
         echo -e "${RED}ERROR: ADB not found. Please install Android SDK platform-tools"
         exit 1
     fi
 
-    if ! adb.exe devices | grep -w "device"; then
+    if ! adb devices | grep -w "device"; then
         echo -e "${RED}ERROR: No Android device connected or device not authorized"
         exit 1
     fi
