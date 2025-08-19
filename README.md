@@ -38,7 +38,7 @@ adb shell pm list packages com.admsqa.buggycalc
 
 **Mobile Application Testing (Task 1):**
 ```bash
-pytest tests/buggy_calc/E2E/test_e2e.py -v
+pytest tests/buggy_calc/test_e2e.py -v
 ```
 
 **API Testing (Task 2):**
