@@ -16,7 +16,7 @@
 ```bash
 git clone https://github.com/pawelsowanowak/logitech.git
 cd logitech
-pip install -r dependency.py312.lock
+pip install -r dependencies.py312.lock
 pip install .
 ```
 
